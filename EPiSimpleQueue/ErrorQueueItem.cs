@@ -7,28 +7,16 @@ namespace EPiSimpleQueue
     public class ErrorQueueItem : IIdentity
     {
         public string ExceptionMessage { get; set; }
-        public MessageBase Message { get; set; }
+        public IMessage Message { get; set; }
         public Guid Id { get; set; }
 
-        public static ErrorQueueItem FromQueueItem(MessageBase message, Exception error)
+        public static ErrorQueueItem FromQueueItem(IMessage message, Exception error)
         {
-            
-            //System.Reflection.MethodInfo inst = message.GetType().GetMethod("MemberwiseClone",
-            //    System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic);
-            //var clone = inst.Invoke(message, null);
-
-
             return new ErrorQueueItem
                        {
                            ExceptionMessage = error.ToString(),
-                           Message = message.ShallowCopy()
+                           Message = message//ShallowCopy()
                        };
         }
-    }
-
-
-    public class TestTest
-    {
-        public DateTime Timez { get; set; }
     }
 }

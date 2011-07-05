@@ -2,11 +2,11 @@ using System;
 
 namespace EPiSimpleQueue.Test.Helpers
 {
-    public class AnEvent : MessageBase
+    public class AnEvent : IMessage
     {
     }
 
-    public class AnEventThatWillThrow : MessageBase
+    public class AnEventThatWillThrow : IMessage
     {
         public Exception Exception { get; set; }
     }

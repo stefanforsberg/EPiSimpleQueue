@@ -50,11 +50,12 @@
     <Compile Include="IHandleMessage.cs" />
     <Compile Include="IHandler.cs" />
     <Compile Include="IIdentity.cs" />
-    <Compile Include="EventBase.cs" />
+    <Compile Include="IMessage.cs" />
     <Compile Include="Infrastructure\Bootstrapper.cs" />
     <Compile Include="Infrastructure\Ioc\EPiServerRegistry.cs" />
     <Compile Include="Infrastructure\Ioc\SimpleQueueRegistry.cs" />
     <Compile Include="Job\QueueJobRunner.cs" />
+    <Compile Include="ProccessResults.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueueItem.cs" />
     <Compile Include="QueueManager.cs" />

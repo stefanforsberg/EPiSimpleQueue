@@ -4,12 +4,6 @@ using EPiServer.Data.Dynamic;
 
 namespace EPiSimpleQueue
 {
-    public class ProccessResults
-    {
-        public int NumberOfItems { get; set; }
-        public int NumberOfFailedItems { get; set; }
-    }
-
     public class QueueManager
     {
         readonly DynamicDataStoreFactory _dynamicDataStoreFactory;
@@ -30,8 +24,6 @@ namespace EPiSimpleQueue
 
             _errorQueueStore = _dynamicDataStoreFactory
                 .GetStore(typeof(ErrorQueueItem));
-
-
         }
 
         public static QueueManager Instance
@@ -39,7 +31,7 @@ namespace EPiSimpleQueue
             get { return Infrastructure.Bootstrapper.Container.GetInstance<QueueManager>(); }
         }
 
-        public void Add(MessageBase message)
+        public void Add(IMessage message)
         {
             var queueItem = new QueueItem
                                 {
